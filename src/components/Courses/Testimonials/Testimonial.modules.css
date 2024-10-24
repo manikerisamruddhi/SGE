@@ -1,0 +1,157 @@
+.testimonial-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 700px;
+  background-color: #D8E5ED;
+  padding: 2rem;
+}
+
+.testimonial-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #002F48;
+}
+
+.card-stack {
+  position: relative;
+  width: 80%;
+  height: 400px; /* Fixed height for the card stack */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Define base styles for testimonial cards */
+.testimonial-card {
+  position: absolute;
+  padding: 2rem;
+  background-color: #f09834;
+  color: #fff;
+  border-radius: 20px;
+  transition: all 1.5s ease; /* Smooth transition */
+  opacity: 1;
+  transform: scale(1);
+  z-index: 4;
+}
+
+/* Hide content by default for all cards */
+.testimonial-card-content {
+  visibility: hidden;
+  transition: visibility 0s, opacity 1.5s ease;
+}
+
+/* Front card (fully visible, with content) */
+.position-0 {
+  width: 100%;
+  opacity: 1; /* Fully visible */
+  z-index: 3; /* Highest z-index */
+  transform: translateY(0); /* Start position */
+  animation: drop 4s ease forwards; /* Increased duration to 4s */
+}
+
+.position-0 .testimonial-card-content {
+  visibility: visible; /* Content visible in front card */
+}
+
+/* Middle card (semi-visible, but content hidden) */
+.position-1 {
+  width: 80%;
+  opacity: 0.8; /* Reduced opacity */
+  z-index: 2; /* Mid z-index */
+  transform: translateY(-10%) scale(0.95); /* Move up slightly */
+}
+
+/* Back card (least visible, content hidden) */
+.position-2 {
+  width: 60%;
+  opacity: 0.5; /* Further reduced opacity */
+  z-index: 1; /* Lowest z-index */
+  transform: translateY(-20%) scale(0.9); /* Move up slightly more */
+}
+
+/* Keyframes for the drop animation */
+@keyframes drop {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    height: 100%; /* Full height at the start */
+  }
+  50% {
+    transform: translateY(50px) scale(1);
+    opacity: 1; /* Keep visible during initial drop */
+    height: 80%; /* Start reducing height */
+  }
+  100% {
+    transform: translateY(100px) scale(0.9); /* Drop further down */
+    opacity: 0; /* Fade out */
+    height: 0; /* Reduce height to 0 for height-wise disappearance */
+  }
+}
+
+/* Testimonial Content */
+.testimonial-card .testimonial-rating,
+.testimonial-card .testimonial-text,
+.testimonial-card .testimonial-author {
+  opacity: 1;
+}
+
+.testimonial-card .testimonial-rating {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.testimonial-card .testimonial-text {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.testimonial-card .testimonial-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-card .testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-bottom: 1rem;
+}
+
+.testimonial-card .testimonial-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #002F48;
+}
+
+.testimonial-card .testimonial-position {
+  font-size: 0.9rem;
+  color: #002F48;
+}
+
+
+.card-stack {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.position-0 {
+  z-index: 2;
+}
+
+.position-1, .position-2 {
+  z-index: 1;
+}

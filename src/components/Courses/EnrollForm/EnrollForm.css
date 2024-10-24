@@ -1,0 +1,7 @@
+.placeholder-custom::placeholder {
+    color: #74A8C3;
+  }
+
+.input-border {
+    border-radius: 15px;
+}
